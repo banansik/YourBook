@@ -1,0 +1,10 @@
+{% include 'default/_form.html.twig' with {
+    page_title: 'title_add_to_rent',
+    page_title_param: {'%title%': book.title},
+    attr: {
+        method: 'POST',
+        action: url('rent_add', {'id': book.id}),
+    },
+    form: form,
+    back_to_list_path: 'book_index',
+} %}

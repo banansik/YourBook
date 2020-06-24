@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{'show_author_details'|trans}}
+    {# {{ 'title_selected_task'|trans({'%id%': task.id|default('')}) }}#}
+{% endblock %}
+
+{% block body %}
+
+    <div class="col-lg-9">
+    <div class="card mt-4" style="background-color: cornsilk">
+    <div class="card-body">
+    <h1>{{ 'title_selected_author'|trans({'%title%': author.title|default('')}) }}</h1>
+
+    {% if author is defined and author|length %}
+        <dl class="dl-horizontal"> {# dl tag, a list with term and descriptions #}
+            <dt>{{ 'label_id'|trans }}</dt>
+            <dd>{{ author.id }}</dd>
+            <dt>{{ 'label_created_at'|trans }}</dt>
+            <dd>{{ author.createdAt|format_date('long') }}</dd>
+            <dt>{{ 'label_updated_at'|trans }}</dt>
+            <dd>{{ author.updatedAt|format_date('long') }}</dd>
+            <dt>{{ 'label_name_surname'|trans }}</dt>
+            <dd>{{ author.title }}</dd>
+            <dt>{{ 'label_description'|trans }}</dt>
+            <dd>{{ author.description }}</dd>
+        </dl>
+
+    {% else %}
+        {% include 'default/_single_flash_message.html.twig' with {
+            type: 'warning',
+            message: 'author_not_found'|trans
+        } %}
+    {% endif %}
+
+    <a href="{{ url('book_index') }}">{{'all_books_list_back'|trans}}</a><br>
+	{% if is_granted('ROLE_ADMIN') %}
+    <a href="{{ url('author_index') }}">{{'all_authors_list_back'|trans}}</a>
+	{% endif %}
+    </div>
+    </div>
+    </div>
+{% endblock %}

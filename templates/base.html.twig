@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+    {% block stylesheets %}
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
+        <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- Custom styles for this template -->
+
+
+    {% endblock %}
+
+    <nav class="navbar fixed navbar-expand-lg navbar-light bg-light>
+        <a class="navbar-brand" href="#"> {{ 'YourBook'|trans }}</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item ">
+                    <a class="nav-link" href="{{ url('book_index') }}"> Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url('category_index') }}">  {{ 'action_category_list'|trans }}</a>
+                </li>
+                {% if is_granted('ROLE_USER') %}
+                <li class="nav-item">
+                    <li><a class="nav-link" href="{{ url('user_rent_index') }}">{{'rent_list'|trans}}</a></li>
+                </li>
+                {% endif %}
+                {% if is_granted('ROLE_ADMIN') %}
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle btn-success" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        {{ 'action_admin_list'|trans }}
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="{{ url('book_create') }}">   {{ 'action_add_book'|trans }} </a>
+                        <a class="dropdown-item" href="{{ url('category_create') }}">{{ 'action_add_category'|trans }}</a>
+                        <a class="dropdown-item" href="{{ url('user_index') }}">{{ 'action_user_list'|trans }}</a>
+                        <a class="dropdown-item" href="{{ url('all_book_index') }}">{{ 'action_all_books'|trans }}</a>
+                        <a class="dropdown-item" href="{{ url('author_create') }}">{{ 'action_add_author'|trans }}</a>
+                        <a class="dropdown-item" href="{{ url('author_index') }}">{{ 'action_author_list'|trans }}</a>
+                        <a class="dropdown-item" href="{{ url('reservation_index') }}">{{ 'action_reservation_index'|trans }}</a>
+                        <a class="dropdown-item" href="{{ url('tag_index') }}">{{ 'label_tags'|trans }}</a>
+
+                    </div>
+                </li>
+                {% endif %}
+                <li class="nav-item">
+                    <a class="nav-link disabled" href="#"></a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+                    <a href="{{ url('user_show', {'id':app.user.id}) }}">{{ 'your_account'|trans }}</a>
+                <div class="form-control mr-sm-2">{{ app.user.email }} </div>
+                    <a class="form-control mr-sm-2" href="{{ url('app_logout') }}">{{ 'action_logout'|trans }}</a>
+
+                {% else %}
+                    <a class="form-control mr-sm-2" href="{{ url('register') }}">{{ 'action_register'|trans }}</a>
+                    <a class="form-control mr-sm-2" href="{{ url('app_login') }}">{{ 'action_login'|trans }}</a>
+
+                {% endif %}
+
+            </form>
+        </div>
+    </nav>
+</head>
+<body>
+<div class="container-fluid">
+
+
+
+
+    {% include 'default/_flash_messages.html.twig' %}
+    {% block body %}{% endblock %}
+
+</div>
+
+
+{% block javascripts %}
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+{% endblock %}
+
+
+</body>
+</html>
+

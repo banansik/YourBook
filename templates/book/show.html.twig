@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{ 'title_book_details'|trans({'%id%': book.id|default('')}) }}
+{% endblock %}
+
+{% block body %}
+    <div class="col-lg-9">
+    <div class="card mt-4" style="background-color: cornsilk">
+        <div class="card-body">
+        <table class="table table-striped">
+    <h1>{{ 'label_book_title'|trans }}</h1>
+    <p>{{  book.title }}</p>
+    {% if book is defined and book|length %}
+        <dl class="dl-horizontal">
+            <dt>{{ 'label_id'|trans }}</dt>
+            <dd>{{ book.id }}</dd>
+            <dt>{{ 'label_title'|trans }}</dt>
+            <dd>{{ book.title }}</dd>
+            <dt>{{ 'label_pages'|trans }}</dt>
+            <dd>{{ book.pages }}</dd>
+            <dt>{{ 'label_category'|trans }}</dt>
+            <dd>{{  book.category.title }}</dd>
+            <dt>{{ 'label_desc'|trans }}</dt>
+            <dd class="card-text"">{{  book.description }}</dd>
+            <dt>{{ 'label_publish_date'|trans }}</dt>
+            <dd class="card-text"">{{  book.publishDate|format_date('long') }}</dd>
+            <dt>{{ 'label_tags'|trans }}</dt>
+            <dd {% for tag in book.tags %}
+                <span>{{ tag.title }}</span>
+            {% endfor %}
+            </dd>
+
+        </dl>
+        <p>
+            <a class = "btn btn-primary btn-xs" href="{{ url('book_index') }}" title="{{ 'action_back_to_list'|trans }}">
+                {{ 'action_back_to_list'|trans }}
+            </a>
+        </p>
+    {% else %}
+        <p>
+            {% include 'default/_single_flash_message.html.twig' with {
+                type: 'warning',
+                message: 'message.empty_list'|trans
+            } %}
+        </p>
+    {% endif %}
+        </table>
+        </div>
+    </div>
+    </div>
+{% endblock %}

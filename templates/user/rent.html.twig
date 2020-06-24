@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ 'user_rents'|trans }}{% endblock %}
+
+{% block body %}
+
+    <h1 class="navbar navbar-expand-lg navbar-light bg-dark">{{ 'user_rents'|trans }}</h1>
+    {% if rent is defined and rent|length %}
+
+        <div class="navigation text-center">
+            {{ knp_pagination_render(rent) }}
+        </div>
+
+        <table class="table table-striped table-dark table-bordered fixed ">
+            <tr>
+                <th>{{  knp_pagination_sortable(rent, 'label_id'|trans, 'rent.id') }}</th>
+                <th>{{  knp_pagination_sortable(rent, 'label_created_at'|trans, 'rent.createdAt') }}</th>
+                <th>{{'label_title'|trans}}</th>
+                <th>{{ 'user_email'|trans}}</th>
+                <th>{{ 'label_is_rented'|trans }}</th>
+                <th>{{ 'label_actions'|trans }}</a></th>
+            </tr>
+            {% for item in rent %}
+            <tr>
+                <td>{{ item.id }}</td>
+                <td>{{ item.createdAt|format_date('long') }}</td>
+                <td>{{ item.book.title }}</td>
+                <td>{{ item.user.email }}</td>
+                {% if item.book.availability == 1 %}
+                    <td>{{ 'no' }}</td>
+                {% else %}
+                    <td>{{ 'yes' }}</td>
+                {% endif %}
+                <td><a href="{{ url('rent_delete', {'id':item.id}) }}">{{ 'action_delete'|trans }}</a>
+                <a href="{{ url('book_edit_rent', {id: item.book.id}) }}" title="{{ item.book.id }}">{{ 'label_give_back'|trans }}</a></td>
+            </tr>
+            {% endfor %}
+        </table>
+
+        <div class="navigation text-center">
+            {{ knp_pagination_render(rent) }}
+        </div>
+
+    {% else %}
+        {% include 'default/_single_flash_message.html.twig' with {
+            type: 'warning',
+            message: 'empty_list_of_rents'|trans
+        } %}
+    {% endif %}
+
+{% endblock %}

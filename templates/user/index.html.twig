@@ -1,0 +1,73 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/table.css') }}">
+{% endblock %}
+
+{% block title %}
+    {{ 'users_title'|trans }}
+{% endblock %}
+
+{% block body %}
+    {{ parent() }}
+    <main>
+        <div class="container mt-5 text-center">
+            {% include 'default/_flash_messages.html.twig' %}
+            <h1 class="navbar navbar-expand-lg navbar-light bg-dark">{{ 'users_list'|trans }}</h1>
+
+
+            {% if pagination is defined %}
+                {% if pagination.items|length %}
+
+
+
+                    <table class="table table-striped">
+                        <thead class="thead-light">
+                        <tr class="d-flex">
+                            <th class="col-5">{{ knp_pagination_sortable(pagination, 'user_email'|trans, 'user.email') }}</th>
+                            <th class="col">{{ 'label_roles'|trans }}</th>
+                            <th class="col">{{ 'label_actions'|trans }}</th>
+
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for users in pagination.items %}
+                            <tr class="d-flex">
+                                <td class="col-5">{{ users.email }}</td>
+                                <td class="col d-none d-sm-block">
+                                    {% if 'ROLE_ADMIN' in users.roles %}
+                                        {{ 'admin_title'|trans }}
+                                    {% else %}
+                                        {{ 'user_title'|trans }}
+                                    {% endif %}
+                                </td>
+                                <td class="col d-none d-sm-block">
+                                    <a class="btn btn-warning" href="{{ url('user_my_account', {id: users.id}) }}" title="{{ 'action_edit'|trans }}">
+                                        {{ 'action_edit'|trans }}
+
+                                </td>
+
+
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                    <div class="pagination justify-content-center" aria-label="Page navigation">
+                        {{ knp_pagination_render(pagination) }}
+                    </div>
+                {% else %}
+                    {% include 'default/_single_flash_message.html.twig' with {
+                        type: 'warning',
+                        message: 'message_empty'|trans
+                    } %}
+                {% endif %}
+            {% else %}
+                {% include 'default/_single_flash_message.html.twig' with {
+                    type: 'danger',
+                    message: 'message_connection_fail'|trans
+                } %}
+            {% endif %}
+        </div>
+    </main>
+{% endblock %}

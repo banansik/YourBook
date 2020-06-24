@@ -1,0 +1,10 @@
+{% include 'default/_form.html.twig' with {
+    page_title: 'title_register',
+    attr: {
+        method: 'POST',
+        action: url('register')
+    },
+    form: form,
+    submit_label: 'label_give_back'|trans,
+    back_to_list_path: 'book_index',
+} %}
