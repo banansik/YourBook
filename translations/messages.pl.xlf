@@ -462,6 +462,34 @@
                 <source>title_tag_delete</source>
                 <target>Tag - usuń</target>
             </trans-unit>
+            <trans-unit id="message_account_updated_successfully">
+                <source>message_account_updated_successfully</source>
+                <target>Zaaktualizowano pomyślnie!</target>
+            </trans-unit>
+            <trans-unit id="label_delete">
+                <source>label_delete</source>
+                <target>Usuń</target>
+            </trans-unit>
+            <trans-unit id="title_author_delete">
+                <source>title_author_delete</source>
+                <target>Usuń Autora</target>
+            </trans-unit>
+            <trans-unit id="message_created_seccessfully">
+                <source>message_created_seccessfully</source>
+                <target>Utworzono Pomyślnie</target>
+            </trans-unit>
+            <trans-unit id="title_reservation_view">
+                <source>title_reservation_view</source>
+                <target>Podgląd Rezerwacji</target>
+            </trans-unit>
+            <trans-unit id="title_reservation_edit">
+                <source>title_reservation_edit</source>
+                <target>Edycja Rezerwacji</target>
+            </trans-unit>
+            <trans-unit id="title_reservation_delete">
+                <source>title_reservation_delete</source>
+                <target>Usuń Rezerwacje</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

@@ -27,6 +27,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{ url('category_index') }}">  {{ 'action_category_list'|trans }}</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url('author_index') }}">  {{ 'action_author_list'|trans }}</a>
+                </li>
                 {% if is_granted('ROLE_USER') %}
                 <li class="nav-item">
                     <li><a class="nav-link" href="{{ url('user_rent_index') }}">{{'rent_list'|trans}}</a></li>

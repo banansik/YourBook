@@ -7,6 +7,9 @@
 {% block body %}
     <h1>{{ 'title_reservation_view'|trans({'%id%': reservation.id|default('')}) }}</h1>
 
+    <div class="col-lg-9">
+    <div class="card mt-4" style="background-color: cornsilk">
+    <div class="card-body">
     <p>
         <a href="{{ url('reservation_index') }}" title="{{ 'action_back_to_list'|trans }}">{{ 'action_back_to_list'|trans }}</a>
     </p>
@@ -27,4 +30,7 @@
             {{ 'message_item_not_found'|trans }}
         </p>
     {% endif %}
+    </div>
+    </div>
+    </div>
 {% endblock %}

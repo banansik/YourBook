@@ -7,6 +7,7 @@ namespace App\Controller;
 
 use App\Entity\Book;
 use App\Entity\Rent;
+use App\Entity\User;
 use App\Form\BookType;
 use App\Form\RentType;
 use App\Service\BookService;
@@ -178,9 +179,7 @@ class BookController extends AbstractController
      *     name="book_edit",
      * )
      *
-     * @IsGranted(
-     *     "VIEW",
-     *     subject="book",
+     * @IsGranted("ROLE_ADMIN")
      * )
      */
     public function edit(Request $request, book $book): Response
@@ -358,6 +357,7 @@ class BookController extends AbstractController
      *     methods={"GET", "DELETE","POST"},
      *     name="rent_delete"
      * )
+     *
      */
     public function deleteRent(Request $request, Rent $rent): Response
     {
@@ -407,7 +407,7 @@ class BookController extends AbstractController
      * )
      *
      * @IsGranted(
-     *     "VIEW",
+     *     "EDIT",
      *     subject="book",
      * )
      */

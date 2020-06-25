@@ -61,9 +61,11 @@
 
 
                      {% if is_granted('ROLE_ADMIN') %}
+                        {% if  book.availability==0%}
                             <a class = "btn btn-danger btn-xs"href="{{ url('book_delete', {id: book.id}) }}" title="{{ 'action_delete'|trans }}">
                                 {{ 'action_delete'|trans }}
                             </a>
+                            {% endif %}
                         {% endif %}
                         {% if is_granted('ROLE_ADMIN') %}
                             <a class="btn btn-warning" href="{{ url('book_edit', {id: book.id}) }}" title="{{ 'action_edit'|trans }}">
