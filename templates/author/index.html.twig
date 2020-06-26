@@ -28,11 +28,11 @@
                     <td>{{ author.title }}</td>
                     <td>
 
-                        <a href="{{ url('author_show', {'id':author.id}) }}">{{ 'action_show'|trans }}</a>
+                        <a class="btn btn-info" href="{{ url('author_show', {'id':author.id}) }}">{{ 'action_show'|trans }}</a>
                         {% if is_granted('ROLE_ADMIN') %}
-                            <a href="{{ url('author_edit', {'id':author.id}) }}">{{ 'label_edit'|trans }}</a>
+                            <a class="btn btn-warning" href="{{ url('author_edit', {'id':author.id}) }}">{{ 'label_edit'|trans }}</a>
                             {% if not author.books|length %}
-                                <a href="{{ url('author_delete', {'id':author.id}) }}">{{ 'label_delete'|trans }}</a>
+                                <a class = "btn btn-danger btn-xs" href="{{ url('author_delete', {'id':author.id}) }}">{{ 'label_delete'|trans }}</a>
                             {% endif %}
                         {% endif %}
                     </td>

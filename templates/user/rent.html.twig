@@ -31,8 +31,13 @@
                 {% else %}
                     <td>{{ 'yes' }}</td>
                 {% endif %}
-                <td><a href="{{ url('rent_delete', {'id':item.id}) }}">{{ 'action_delete'|trans }}</a>
-                <a href="{{ url('book_edit_rent', {id: item.book.id}) }}" title="{{ item.book.id }}">{{ 'label_give_back'|trans }}</a></td>
+
+                {% if item.book.availability == 1 %}
+                    <td><a class = "btn btn-danger" href="{{ url('rent_delete', {'id':item.id}) }}">{{ 'action_delete'|trans }}</a></td>
+                {% endif %}
+                    {% if item.book.availability == 0 %}
+                <td> <a class="btn btn-success" href="{{ url('book_edit_rent', {id: item.book.id}) }}" title="{{ item.book.id }}">{{ 'label_give_back'|trans }}</a></td>
+                {% endif %}
             </tr>
             {% endfor %}
         </table>

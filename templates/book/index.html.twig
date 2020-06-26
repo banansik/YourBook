@@ -73,7 +73,7 @@
                                 </a>
             {% endif %}
                         {% if is_granted('ROLE_USER') %}
-                            <a href="{{ url('rent_add', {'id':book.id}) }}">{{ 'rent'|trans }}</a><br>
+                            <a class="btn btn-success" href="{{ url('rent_add', {'id':book.id}) }}">{{ 'rent'|trans }}</a><br>
                         {% endif %}
                     </td>
                 </tr>

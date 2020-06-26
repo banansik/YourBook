@@ -367,11 +367,7 @@ class BookController extends AbstractController
         if ($request->isMethod('DELETE') && !$form->isSubmitted()) {
             $form->submit($request->request->get($form->getName()));
         }
-
         if ($form->isSubmitted() && $form->isValid()) {
-            //$book->setAvailability(1);
-            //$this->bookService->save($book);
-            //$rentRepository->delete($rent);
             $this->rentService->delete($rent);
 
             $this->addFlash('success', 'message_deleted_successfully');

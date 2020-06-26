@@ -36,7 +36,9 @@
                     <td>
                         <a href="{{ url('reservation_show', {id: reservation.id}) }}" title="{{ 'action_view'|trans }}">{{ 'action_view'|trans }}</a>
                         <a href="{{ url('reservation_edit', {id: reservation.id}) }}" title="{{ 'action_edit'|trans }}">{{ 'action_edit'|trans }}</a>
+                        {% if reservation.book.availability == 1 %}
                         <a href="{{ url('reservation_delete', {id: reservation.id}) }}" title="{{ 'action_delete'|trans }}">{{ 'action_delete'|trans }}</a>
+                        {% endif %}
                         <a href="{{ url('book_accept_rent', {id: reservation.book.id}) }}" title="{{ reservation.book.id }}">{{ 'label_accept'|trans}}</a>
                         <a href="{{ url('book_edit_rent', {id: reservation.book.id}) }}" title="{{ reservation.book.id }}">{{ 'label_give_back'|trans}}</a>
                     </td>

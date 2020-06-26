@@ -260,7 +260,7 @@
             </trans-unit>
             <trans-unit id="rent">
                 <source>rent</source>
-                <target>wypożyczenie</target>
+                <target>Wypożycz</target>
             </trans-unit>
             <trans-unit id="all_books_list_back">
                 <source>all_books_list_back</source>

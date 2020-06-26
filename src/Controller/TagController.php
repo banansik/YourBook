@@ -79,6 +79,7 @@ class TagController extends AbstractController
      *     methods={"GET", "PUT"},
      *     name="tag_edit",
      * )
+     * @IsGranted("ROLE_ADMIN")
      */
     public function edit(Request $request, Tag $tag): Response
     {
@@ -120,6 +121,7 @@ class TagController extends AbstractController
      *     methods={"GET", "DELETE"},
      *     name="tag_delete"
      * )
+     * @IsGranted("ROLE_ADMIN")
      */
     public function delete(Request $request, Tag $tag): Response
     {

@@ -273,7 +273,7 @@ class UserController extends AbstractController
             $this->addFlash('succes', 'message_updated_successfully');
 
 
-            return $this->redirectToRoute('user_show', ['id' => $userData->getUser()->getId()]);
+            return $this->redirectToRoute('book_index', ['id' => $userData->getUser()->getId()]);
         }
 
         return $this->render(
