@@ -490,6 +490,14 @@
                 <source>title_reservation_delete</source>
                 <target>Usuń Rezerwacje</target>
             </trans-unit>
+            <trans-unit id="title_password_change">
+                <source>title_password_change</source>
+                <target>Zmiana Hasła</target>
+            </trans-unit>
+            <trans-unit id="yes_label">
+                <source>yes_label</source>
+                <target>Tak</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

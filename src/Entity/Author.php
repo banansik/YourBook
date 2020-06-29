@@ -117,7 +117,8 @@ class Author
      *
      * @Assert\Type(type="string")
      * @Assert\Length(
-     *     min="10"
+     *     min="10",
+     *      max="55"
      * )
      */
     private $description;

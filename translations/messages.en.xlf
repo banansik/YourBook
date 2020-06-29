@@ -442,6 +442,14 @@
                 <source>title_reservation_delete</source>
                 <target>Reservation Delete</target>
             </trans-unit>
+            <trans-unit id="title_password_change">
+                <source>title_password_change</source>
+                <target>Password Change</target>
+            </trans-unit>
+            <trans-unit id="yes_label">
+                <source>yes_label</source>
+                <target>Yes</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

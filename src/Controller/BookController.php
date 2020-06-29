@@ -325,6 +325,7 @@ class BookController extends AbstractController
      *     methods={"GET"},
      *     name="user_rent_index",
      * )
+     *
      */
     public function showRents(Request $request)
     {

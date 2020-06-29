@@ -30,7 +30,7 @@
                     {% if reservation.book.availability == 0 %}
                     <td>{{ 'no' }}</td>
                     {% else %}
-                        <td>{{ 'yes' }}</td>
+                        <td>{{ 'yes_label'|trans }}</td>
                         {% endif %}
 
                     <td>

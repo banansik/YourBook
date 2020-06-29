@@ -34,24 +34,7 @@ class ChangePasswordType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
-        /* $builder->add('roles', ChoiceType::class, [
-             'label' => 'users_permissions',
-             'choices' => ['common_admin' => 'ROLE_ADMIN', 'common_user' => 'ROLE_USER'],
-             'expanded' => true,
-             'multiple' => false,
-         ]);
-         $builder->get('roles')
-             ->addModelTransformer(new CallbackTransformer(
-                 function ($rolesArray) {
-                     // transform the array to a string
-                     return count($rolesArray) ? $rolesArray[0] : null;
-                 },
-                 function ($rolesString) {
-                     // transform the string back to an array
-                     return [$rolesString];
-                 }
-             ));
-         */
+
         $builder->add(
             'email',
             TextType::class,

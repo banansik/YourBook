@@ -69,7 +69,9 @@ class Book
     private $publishDate;
 
     /**
-     * @ORM\OneToMany(targetEntity=Reservation::class, mappedBy="book")
+     * @ORM\OneToMany(targetEntity=Reservation::class,
+     *      mappedBy="book",
+     *     fetch="EXTRA_LAZY",)
      */
     private $reservations;
 
@@ -143,7 +145,9 @@ class Book
     private $author;
 
     /**
-     * @ORM\OneToMany(targetEntity=Rent::class, mappedBy="book")
+     * @ORM\OneToMany(targetEntity=Rent::class,
+     *      mappedBy="book",
+     *     fetch="EXTRA_LAZY",)
      */
     private $rent;
 

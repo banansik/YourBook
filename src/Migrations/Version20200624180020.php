@@ -1,5 +1,7 @@
 <?php
-
+/**
+ * Auto-generated Migration: Please modify to your needs!
+ */
 declare(strict_types=1);
 
 namespace DoctrineMigrations;
@@ -12,11 +14,19 @@ use Doctrine\Migrations\AbstractMigration;
  */
 final class Version20200624180020 extends AbstractMigration
 {
+    /**
+     * @return string
+     */
     public function getDescription() : string
     {
         return '';
     }
 
+    /**
+     * @param Schema $schema
+     *
+     * @throws \Doctrine\DBAL\DBALException
+     */
     public function up(Schema $schema) : void
     {
         // this up() migration is auto-generated, please modify it to your needs
@@ -28,6 +38,11 @@ final class Version20200624180020 extends AbstractMigration
         $this->addSql('ALTER TABLE users DROP user_data_id');
     }
 
+    /**
+     * @param Schema $schema
+     *
+     * @throws \Doctrine\DBAL\DBALException
+     */
     public function down(Schema $schema) : void
     {
         // this down() migration is auto-generated, please modify it to your needs

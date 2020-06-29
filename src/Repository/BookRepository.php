@@ -82,12 +82,14 @@ class BookRepository extends ServiceEntityRepository
     {
         $queryBuilder = $this->getOrCreateQueryBuilder()
             ->select(
-                'partial book.{id, publishDate, updatedAt, title}',
+                'partial book.{id, updatedAt, title}',
                 'partial category.{id, title}',
-                'partial tags.{id, title}'
+                'partial tags.{id, title}',
+                'partial author.{id, title}'
             )
             ->join('book.category', 'category')
             ->leftJoin('book.tags', 'tags')
+            ->leftJoin('book.author', 'author')
             ->where('book.availability = TRUE')
             ->orderBy('book.updatedAt', 'DESC');
         $queryBuilder = $this->applyFiltersToList($queryBuilder, $filters);
@@ -106,12 +108,13 @@ class BookRepository extends ServiceEntityRepository
     {
         $queryBuilder = $this->getOrCreateQueryBuilder()
             ->select(
-                'partial book.{id, publishDate, updatedAt, title}',
+                'partial book.{id, updatedAt, title}',
                 'partial category.{id, title}',
                 'partial tags.{id, title}'
             )
             ->join('book.category', 'category')
             ->leftJoin('book.tags', 'tags')
+            ->leftJoin('book.authors', 'author')
 
             ->orderBy('book.updatedAt', 'DESC');
         $queryBuilder = $this->applyFiltersToList($queryBuilder, $filters);
