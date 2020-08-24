@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container p-2 m-2">
+        <div class="row">
+            <div class="col text-dark">
+                <h1>{{ 'message_start'|trans }}</h1>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col offset-3">
+                <a href="{{ url('book_index') }}" title="{{ 'title_tapes_list'|trans }}">
+                    <img class="h-75 w-75 d-inline-block" src="https://pngimg.com/uploads/book/book_PNG2105.png" class="img-fluid" alt="Responsive image">
+                </a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

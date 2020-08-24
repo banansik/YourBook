@@ -57,7 +57,7 @@ class BookController extends AbstractController
      * @return Response HTTP response
      *
      * @Route(
-     *     "/",
+     *     "/book_index",
      *     name="book_index",
      * )
      */
@@ -474,4 +474,35 @@ class BookController extends AbstractController
             ]
         );
     }
+
+    /**
+     *  AcceptRent action.
+     *
+     * @param Request $request HTTP request
+     *
+     *
+     * @return Response HTTP response
+     *
+     * @throws ORMException
+     * @throws OptimisticLockException
+     *
+     * @Route(
+     *     "/",
+     *
+     *     name="book_accept_rent",
+     * )
+     *
+     *
+     */
+    public function start(Request $request): Response
+    {
+
+
+        return $this->render(
+            'index/index.html.twig'
+
+
+        );
+    }
 }
+

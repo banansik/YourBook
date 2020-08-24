@@ -498,6 +498,10 @@
                 <source>yes_label</source>
                 <target>Tak</target>
             </trans-unit>
+            <trans-unit id="message_start">
+                <source>message_start</source>
+                <target>Witaj w naszej internetowej bibliotece!</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

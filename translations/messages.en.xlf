@@ -450,6 +450,10 @@
                 <source>yes_label</source>
                 <target>Yes</target>
             </trans-unit>
+            <trans-unit id="message_start">
+                <source>message_start</source>
+                <target>Welecome in out online library!</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>
