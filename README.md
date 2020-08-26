@@ -10,7 +10,7 @@ zarejestrowany użytkownik (user),
 
 niezarejestrowany użytkownik (unregister),
 
-Serwis umożliwia wypożyczanie książek zarejestrowanym użytkownikom. Wypożyczenie odbywa się poprzez wybranie odpowiedniej pozycji i kliknięcie wypożycz bądź zarezerwuj jeśli książka nie jest dostępna. Serwis oferuje wyszukiwanie książek za pomocą wyszukiwarki słów kluczowych, kategorii oraz hashtagów.
+Serwis umożliwia wypożyczanie książek zarejestrowanym użytkownikom oraz przeszukiwanie i rezerwacje zasobów przez niezarejstrowanego uzytkownika. Wypożyczenie odbywa się poprzez wybranie odpowiedniej pozycji i kliknięcie wypożycz bądź zarezerwuj jeśli książka nie jest dostępna. Serwis oferuje wyszukiwanie książek za pomocą wyszukiwarki słów kluczowych, kategorii oraz hashtagów.
 
 administrator (admin):
 - Panel administratora
