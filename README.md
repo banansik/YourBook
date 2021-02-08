@@ -1,4 +1,8 @@
 # YourBook
+Online library application, created in PHP and Symfony
+
+available on: https://wierzba.wzks.uj.edu.pl/~18_banasik/projekt_si/public/
+
 
 internetowa wypożyczalnia książek
 
